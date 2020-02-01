@@ -2,7 +2,13 @@
 
 This is the repo in which I post some jupyter notebooks related to data science and my learning jorney.
 
-# Repo
+# Projects:
+- Population Segmentation with SageMaker
+	- Employ two unsupervised learning algorithms to do population segmentation
+	- Principal component analysis (PCA) and k-means clustering
+- Detecting Payment Card Fraud
+	- Building a binary classification model that can identify transactions as either fraudulent or valid, based on historical data
+	- Building a LinearLearner algorithm ( Sagemaker's built-in algorithm) 
 - Natural-Language-Toolkit-Python
 - Streaming-Twitter-Data-into-a-MongoDB-Database
 
