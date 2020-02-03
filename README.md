@@ -7,8 +7,11 @@ This is the repo in which I post some jupyter notebooks related to data science 
 	- Employ two unsupervised learning algorithms to do population segmentation
 	- Principal component analysis (PCA) and k-means clustering
 - Detecting Payment Card Fraud
-	- Building a binary classification model that can identify transactions as either fraudulent or valid, based on historical data
-	- Building a LinearLearner algorithm ( Sagemaker's built-in algorithm) 
+	- Build a binary classification model that can identify transactions as either fraudulent or valid, based on historical data
+	- Build a LinearLearner algorithm ( Sagemaker's built-in algorithm) 
+- Moon Data Classification
+	- Used PyTorch neural network to create a binary classifier for data that is separated into two classes
+	- Built and deployed a custom model in SageMaker
 - Natural-Language-Toolkit-Python
 - Streaming-Twitter-Data-into-a-MongoDB-Database
 
