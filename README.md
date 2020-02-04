@@ -12,6 +12,9 @@ This is the repo in which I post some jupyter notebooks related to data science 
 - Moon Data Classification
 	- Used PyTorch neural network to create a binary classifier for data that is separated into two classes
 	- Built and deployed a custom model in SageMaker
+- Forecasting Energy Consumption
+	- Exploring a household electric power consumption dataset and building a energy consumption forecasting model 
+	- building a DeepAR model which is one algorithm that utilizes a recurrent neural network - RNN
 - Natural-Language-Toolkit-Python
 - Streaming-Twitter-Data-into-a-MongoDB-Database
 
