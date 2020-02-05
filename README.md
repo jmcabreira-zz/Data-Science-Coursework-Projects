@@ -1,4 +1,4 @@
-![](images/CabreiraLogo.png)
+![](img_logo/logo.png)
 
 This is the repo in which I post some jupyter notebooks related to data science and my learning jorney.
 
