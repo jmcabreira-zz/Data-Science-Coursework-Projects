@@ -15,6 +15,8 @@ This is the repo in which I post some jupyter notebooks related to data science 
 - Forecasting Energy Consumption
 	- Exploring a household electric power consumption dataset and building a energy consumption forecasting model 
 	- building a DeepAR model which is one algorithm that utilizes a recurrent neural network - RNN
+- Containment
+	- create containment features that first look at a whole body of text (and count up the occurrences of words in several text files) and then compare a submitted and source text, relative to the traits of the whole body of text.
 - Natural-Language-Toolkit-Python
 - Streaming-Twitter-Data-into-a-MongoDB-Database
 
