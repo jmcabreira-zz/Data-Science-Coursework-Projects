@@ -19,6 +19,8 @@ This is the repo in which I post some jupyter notebooks related to data science 
 	- Create containment features that first look at a whole body of text (and count up the occurrences of words in several text files) and then compare a submitted and source text, relative to the traits of the whole body of text.
 - Natural-Language-Toolkit-Python
 - Streaming-Twitter-Data-into-a-MongoDB-Database
+- Codenation - Data Science Challenges 
+	- [Career acceleration programs](https://codenation.dev/)
 
  # About Me 
  
