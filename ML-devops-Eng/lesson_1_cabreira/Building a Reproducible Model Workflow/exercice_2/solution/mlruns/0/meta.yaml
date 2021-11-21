@@ -1,0 +1,4 @@
+artifact_location: file:///home/jonathan/Documents/ml-devops-eng/nd0821-c2-build-model-workflow-exercises/lesson-1-machine-learning-pipelines/exercises/exercise_2/solution/mlruns/0
+experiment_id: '0'
+lifecycle_stage: active
+name: Default

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/jonathan/Documents/ml-devops-eng/nd0821-c2-build-model-workflow-exercises/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/mlruns/0/e8c065e030e2420fa3f8698cdcc79378/artifacts
+end_time: 1637528869903
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: e8c065e030e2420fa3f8698cdcc79378
+run_uuid: e8c065e030e2420fa3f8698cdcc79378
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1637528854576
+status: 3
+tags: []
+user_id: jonathan

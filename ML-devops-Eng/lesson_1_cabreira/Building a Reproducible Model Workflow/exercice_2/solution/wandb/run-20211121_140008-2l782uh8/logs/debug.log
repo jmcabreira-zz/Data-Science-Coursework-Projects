@@ -1,0 +1,28 @@
+2021-11-21 14:00:08,688 INFO    MainThread:13575 [wandb_setup.py:_flush():69] setting env: {}
+2021-11-21 14:00:08,689 INFO    MainThread:13575 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-11-21 14:00:08,689 INFO    MainThread:13575 [wandb_init.py:_log_setup():334] Logging user logs to /home/jonathan/Documents/ml-devops-eng/nd0821-c2-build-model-workflow-exercises/lesson-1-machine-learning-pipelines/exercises/exercise_2/solution/wandb/run-20211121_140008-2l782uh8/logs/debug.log
+2021-11-21 14:00:08,689 INFO    MainThread:13575 [wandb_init.py:_log_setup():335] Logging internal logs to /home/jonathan/Documents/ml-devops-eng/nd0821-c2-build-model-workflow-exercises/lesson-1-machine-learning-pipelines/exercises/exercise_2/solution/wandb/run-20211121_140008-2l782uh8/logs/debug-internal.log
+2021-11-21 14:00:08,690 INFO    MainThread:13575 [wandb_init.py:init():367] calling init triggers
+2021-11-21 14:00:08,690 INFO    MainThread:13575 [wandb_init.py:init():372] wandb.init called with sweep_config: {}
+config: {}
+2021-11-21 14:00:08,690 INFO    MainThread:13575 [wandb_init.py:init():416] starting backend
+2021-11-21 14:00:08,691 INFO    MainThread:13575 [backend.py:_multiprocessing_setup():69] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2021-11-21 14:00:08,710 INFO    MainThread:13575 [backend.py:ensure_launched():123] starting backend process...
+2021-11-21 14:00:08,724 INFO    MainThread:13575 [backend.py:ensure_launched():127] started backend process with pid: 13589
+2021-11-21 14:00:08,730 INFO    MainThread:13575 [wandb_init.py:init():421] backend started and connected
+2021-11-21 14:00:08,733 INFO    MainThread:13575 [wandb_init.py:init():461] updated telemetry
+2021-11-21 14:00:08,734 INFO    MainThread:13575 [wandb_init.py:init():480] communicating current version
+2021-11-21 14:00:09,327 INFO    MainThread:13575 [wandb_init.py:init():485] got version response upgrade_message: "wandb version 0.12.7 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2021-11-21 14:00:09,328 INFO    MainThread:13575 [wandb_init.py:init():493] communicating run to backend with 30 second timeout
+2021-11-21 14:00:09,575 INFO    MainThread:13575 [wandb_init.py:init():518] starting run threads in backend
+2021-11-21 14:00:09,610 INFO    MainThread:13575 [wandb_run.py:_console_start():1476] atexit reg
+2021-11-21 14:00:09,611 INFO    MainThread:13575 [wandb_run.py:_redirect():1339] redirect: SettingsConsole.REDIRECT
+2021-11-21 14:00:09,612 INFO    MainThread:13575 [wandb_run.py:_redirect():1344] Redirecting console.
+2021-11-21 14:00:09,612 INFO    MainThread:13575 [redirect.py:install():213] install start
+2021-11-21 14:00:09,613 INFO    MainThread:13575 [redirect.py:install():228] install stop
+2021-11-21 14:00:09,613 INFO    MainThread:13575 [redirect.py:install():213] install start
+2021-11-21 14:00:09,613 INFO    MainThread:13575 [redirect.py:install():228] install stop
+2021-11-21 14:00:09,613 INFO    MainThread:13575 [wandb_run.py:_redirect():1390] Redirects installed.
+2021-11-21 14:00:09,613 INFO    MainThread:13575 [wandb_init.py:init():542] run started, returning control to user process
+2021-11-21 14:00:12,960 INFO    MainThread:13575 [wandb_run.py:finish():1135] finishing run cabreirajm/exercise_2/2l782uh8

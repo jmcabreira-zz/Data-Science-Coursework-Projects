@@ -1,0 +1,31 @@
+{
+    "os": "Linux-5.4.0-90-generic-x86_64-with-glibc2.10",
+    "python": "3.8.12",
+    "heartbeatAt": "2021-11-21T21:07:42.397895",
+    "startedAt": "2021-11-21T21:07:41.267330",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [
+        "--file_url",
+        "https://raw.githubusercontent.com/scikit-learn/scikit-learn/4dfdfb4e1bb3719628753a4ece995a1b2fa5312a/sklearn/datasets/data/iris.csv",
+        "--artifact_name",
+        "iris.csv",
+        "--artifact_type",
+        "raw_data",
+        "--artifact_description",
+        "Input data"
+    ],
+    "state": "running",
+    "program": "download_data.py",
+    "codePath": "lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/download_data/download_data.py",
+    "git": {
+        "remote": "https://github.com/udacity/nd0821-c2-build-model-workflow-exercises.git",
+        "commit": "09b0a3445e4769e8aed2a55c52094a13f1afa991"
+    },
+    "email": "jm_cabreira@id.uff.br",
+    "root": "/home/jonathan/Documents/ml-devops-eng/nd0821-c2-build-model-workflow-exercises",
+    "host": "Cabreira",
+    "username": "jonathan",
+    "executable": "/home/jonathan/anaconda3/envs/mlflow-762826667393682ce5aa2d0e5e763952c40774c3/bin/python"
+}

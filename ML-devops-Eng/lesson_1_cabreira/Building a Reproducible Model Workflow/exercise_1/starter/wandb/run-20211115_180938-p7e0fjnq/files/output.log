@@ -1,0 +1,7 @@
+2021-11-15 18:09:44,543 Creating an artifcat
+Traceback (most recent call last):
+  File "upload_artifact.py", line 56, in <module>
+    go(args)
+  File "upload_artifact.py", line 18, in go
+    artifact = wandb.artifact(
+AttributeError: module 'wandb' has no attribute 'artifact'
