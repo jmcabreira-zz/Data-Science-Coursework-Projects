@@ -1,0 +1,15 @@
+artifact_uri: file:///home/jonathan/Documents/ml-devops-eng/Data_Exploration_and_Preparation/lesson_2_cabreira/exercise_6/starter/mlruns/0/75dccd1b21e04556a10a8f78f46e3def/artifacts
+end_time: 1639133771734
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 75dccd1b21e04556a10a8f78f46e3def
+run_uuid: 75dccd1b21e04556a10a8f78f46e3def
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1639133579274
+status: 3
+tags: []
+user_id: jonathan

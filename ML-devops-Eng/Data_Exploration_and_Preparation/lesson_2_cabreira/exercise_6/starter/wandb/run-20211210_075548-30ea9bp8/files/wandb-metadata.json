@@ -1,0 +1,35 @@
+{
+    "os": "Linux-5.4.0-91-generic-x86_64-with-glibc2.27",
+    "python": "3.9.7",
+    "heartbeatAt": "2021-12-10T10:55:50.486457",
+    "startedAt": "2021-12-10T10:55:48.969571",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [
+        "--input_artifact",
+        "exercise_5/preprocessed_data.csv:latest",
+        "--artifact_root",
+        "data",
+        "--artifact_type",
+        "raw_data",
+        "--test_size",
+        "0.3",
+        "--random_state",
+        "42",
+        "--stratify",
+        "genre"
+    ],
+    "state": "running",
+    "program": "/home/jonathan/Documents/ml-devops-eng/Data_Exploration_and_Preparation/lesson_2_cabreira/exercise_6/starter/run.py",
+    "codePath": "Documents/ml-devops-eng/Data_Exploration_and_Preparation/lesson_2_cabreira/exercise_6/starter/run.py",
+    "git": {
+        "remote": null,
+        "commit": "2ef0cb921590a01de9ba73971ab9d4ea55b2bb76"
+    },
+    "email": "jm_cabreira@id.uff.br",
+    "root": "/home/jonathan",
+    "host": "Cabreira",
+    "username": "jonathan",
+    "executable": "/home/jonathan/anaconda3/envs/mlflow-b536c99cab3f07bfeb0a1ad9e153575c07cd087e/bin/python"
+}

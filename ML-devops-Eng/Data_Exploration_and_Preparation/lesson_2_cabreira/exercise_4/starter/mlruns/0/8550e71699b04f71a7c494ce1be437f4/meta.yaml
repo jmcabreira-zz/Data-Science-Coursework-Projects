@@ -1,0 +1,15 @@
+artifact_uri: file:///home/jonathan/Documents/ml-devops-eng/nd0821-c2-build-model-workflow-exercises/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/mlruns/0/8550e71699b04f71a7c494ce1be437f4/artifacts
+end_time: 1637543560635
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 8550e71699b04f71a7c494ce1be437f4
+run_uuid: 8550e71699b04f71a7c494ce1be437f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1637542578936
+status: 3
+tags: []
+user_id: jonathan

@@ -1,0 +1,781 @@
+diff --git a/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts-Copy1.ipynb b/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts-Copy1.ipynb
+index e4c3792..7237b01 100644
+--- a/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts-Copy1.ipynb	
++++ b/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts-Copy1.ipynb	
+@@ -396,7 +396,7 @@
+  ],
+  "metadata": {
+   "kernelspec": {
+-   "display_name": "Python 3",
++   "display_name": "Python 3 (ipykernel)",
+    "language": "python",
+    "name": "python3"
+   },
+@@ -410,7 +410,7 @@
+    "name": "python",
+    "nbconvert_exporter": "python",
+    "pygments_lexer": "ipython3",
+-   "version": "3.8.8"
++   "version": "3.8.12"
+   }
+  },
+  "nbformat": 4,
+diff --git a/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts.ipynb b/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts.ipynb
+index dc07bb4..18114f0 100644
+--- a/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts.ipynb	
++++ b/lesson-1-machine-learning-pipelines/demo/Upload and version artifacts.ipynb	
+@@ -48,9 +48,9 @@
+      "name": "stdout",
+      "output_type": "stream",
+      "text": [
+-      "Upload and version artifacts-Copy1.ipynb\r\n",
+-      "Upload and version artifacts.ipynb\r\n",
+-      "my_artifact.txt\r\n"
++      " my_artifact.txt\r\n",
++      "'Upload and version artifacts-Copy1.ipynb'\r\n",
++      "'Upload and version artifacts.ipynb'\r\n"
+      ]
+     }
+    ],
+@@ -68,7 +68,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 5,
++   "execution_count": 4,
+    "id": "967fa080",
+    "metadata": {},
+    "outputs": [
+@@ -76,21 +76,16 @@
+      "name": "stderr",
+      "output_type": "stream",
+      "text": [
+-      "\u001b[34m\u001b[1mwandb\u001b[0m: Currently logged in as: \u001b[33mgiacomovianello\u001b[0m (use `wandb login --relogin` to force relogin)\n",
+-      "\u001b[34m\u001b[1mwandb\u001b[0m: wandb version 0.10.29 is available!  To upgrade, please run:\n",
+-      "\u001b[34m\u001b[1mwandb\u001b[0m:  $ pip install wandb --upgrade\n"
++      "\u001b[34m\u001b[1mwandb\u001b[0m: Currently logged in as: \u001b[33mcabreirajm\u001b[0m (use `wandb login --relogin` to force relogin)\n"
+      ]
+     },
+     {
+      "data": {
+       "text/html": [
+        "\n",
+-       "                Tracking run with wandb version 0.10.28<br/>\n",
+-       "                Syncing run <strong style=\"color:#cdcd00\">dry-terrain-1</strong> to <a href=\"https://wandb.ai\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n",
+-       "                Project page: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1</a><br/>\n",
+-       "                Run page: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1/runs/29j6fnw6\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1/runs/29j6fnw6</a><br/>\n",
+-       "                Run data is saved locally in <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_105915-29j6fnw6</code><br/><br/>\n",
+-       "            "
++       "                    Syncing run <strong><a href=\"https://wandb.ai/cabreirajm/demo_artifact_1/runs/aslbjyqz\" target=\"_blank\">fresh-dew-1</a></strong> to <a href=\"https://wandb.ai/cabreirajm/demo_artifact_1\" target=\"_blank\">Weights & Biases</a> (<a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">docs</a>).<br/>\n",
++       "\n",
++       "                "
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -101,16 +96,18 @@
+     }
+    ],
+    "source": [
++    "# Create a run\n",
+     "run = wandb.init(project=\"demo_artifact_1\", group=\"experiment_1\")"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 7,
++   "execution_count": 5,
+    "id": "a9b7ca0b",
+    "metadata": {},
+    "outputs": [],
+    "source": [
++    "# Create an artifact instance\n",
+     "artifact = wandb.Artifact(\n",
+     "    name=\"my_artifact.txt\", \n",
+     "    type=\"data\", \n",
+@@ -123,7 +120,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 8,
++   "execution_count": 6,
+    "id": "8cd70539",
+    "metadata": {},
+    "outputs": [
+@@ -133,28 +130,29 @@
+        "<ManifestEntry digest: bStOq42zZ7Ka3e5ArNjTIg==>"
+       ]
+      },
+-     "execution_count": 8,
++     "execution_count": 6,
+      "metadata": {},
+      "output_type": "execute_result"
+     }
+    ],
+    "source": [
++    "# add file to the artifact instance\n",
+     "artifact.add_file(\"my_artifact.txt\")"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 9,
++   "execution_count": 7,
+    "id": "cdd3534f",
+    "metadata": {},
+    "outputs": [
+     {
+      "data": {
+       "text/plain": [
+-       "<wandb.sdk.wandb_artifacts.Artifact at 0x7fef3bd2a610>"
++       "<wandb.sdk.wandb_artifacts.Artifact at 0x7f7128303d30>"
+       ]
+      },
+-     "execution_count": 9,
++     "execution_count": 7,
+      "metadata": {},
+      "output_type": "execute_result"
+     }
+@@ -165,14 +163,14 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 10,
++   "execution_count": 8,
+    "id": "34e62a4c",
+    "metadata": {},
+    "outputs": [
+     {
+      "data": {
+       "text/html": [
+-       "<br/>Waiting for W&B process to finish, PID 3627<br/>Program ended successfully."
++       "<br/>Waiting for W&B process to finish, PID 25106... <strong style=\"color:green\">(success).</strong>"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -198,45 +196,17 @@
+     {
+      "data": {
+       "text/html": [
+-       "Find user logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_105915-29j6fnw6/logs/debug.log</code>"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "Find internal logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_105915-29j6fnw6/logs/debug-internal.log</code>"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "Synced 5 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "\n",
+-       "                    <br/>Synced <strong style=\"color:#cdcd00\">dry-terrain-1</strong>: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1/runs/29j6fnw6\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1/runs/29j6fnw6</a><br/>\n",
+-       "                "
++       "<style>\n",
++       "    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }\n",
++       "    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }\n",
++       "    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }\n",
++       "    </style>\n",
++       "<div class=\"wandb-row\"><div class=\"wandb-col\">\n",
++       "</div><div class=\"wandb-col\">\n",
++       "</div></div>\n",
++       "Synced 5 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)\n",
++       "<br/>Synced <strong style=\"color:#cdcd00\">fresh-dew-1</strong>: <a href=\"https://wandb.ai/cabreirajm/demo_artifact_1/runs/aslbjyqz\" target=\"_blank\">https://wandb.ai/cabreirajm/demo_artifact_1/runs/aslbjyqz</a><br/>\n",
++       "Find logs at: <code>./wandb/run-20211115_174350-aslbjyqz/logs</code><br/>\n"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -260,28 +230,17 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 11,
++   "execution_count": 9,
+    "id": "e06e1b99",
+    "metadata": {},
+    "outputs": [
+-    {
+-     "name": "stderr",
+-     "output_type": "stream",
+-     "text": [
+-      "\u001b[34m\u001b[1mwandb\u001b[0m: wandb version 0.10.29 is available!  To upgrade, please run:\n",
+-      "\u001b[34m\u001b[1mwandb\u001b[0m:  $ pip install wandb --upgrade\n"
+-     ]
+-    },
+     {
+      "data": {
+       "text/html": [
+        "\n",
+-       "                Tracking run with wandb version 0.10.28<br/>\n",
+-       "                Syncing run <strong style=\"color:#cdcd00\">wild-pyramid-2</strong> to <a href=\"https://wandb.ai\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n",
+-       "                Project page: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1</a><br/>\n",
+-       "                Run page: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1/runs/39nsgnic\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1/runs/39nsgnic</a><br/>\n",
+-       "                Run data is saved locally in <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110539-39nsgnic</code><br/><br/>\n",
+-       "            "
++       "                    Syncing run <strong><a href=\"https://wandb.ai/cabreirajm/demo_artifact_1/runs/1hlv5s8g\" target=\"_blank\">confused-breeze-2</a></strong> to <a href=\"https://wandb.ai/cabreirajm/demo_artifact_1\" target=\"_blank\">Weights & Biases</a> (<a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">docs</a>).<br/>\n",
++       "\n",
++       "                "
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -293,10 +252,10 @@
+     {
+      "data": {
+       "text/plain": [
+-       "<wandb.sdk.wandb_artifacts.Artifact at 0x7fef3aeaf490>"
++       "<wandb.sdk.wandb_artifacts.Artifact at 0x7f7129929310>"
+       ]
+      },
+-     "execution_count": 11,
++     "execution_count": 9,
+      "metadata": {},
+      "output_type": "execute_result"
+     }
+@@ -321,14 +280,14 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 12,
++   "execution_count": 10,
+    "id": "92e06460",
+    "metadata": {},
+    "outputs": [
+     {
+      "data": {
+       "text/html": [
+-       "<br/>Waiting for W&B process to finish, PID 3717<br/>Program ended successfully."
++       "<br/>Waiting for W&B process to finish, PID 25277... <strong style=\"color:green\">(success).</strong>"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -354,45 +313,17 @@
+     {
+      "data": {
+       "text/html": [
+-       "Find user logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110539-39nsgnic/logs/debug.log</code>"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "Find internal logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110539-39nsgnic/logs/debug-internal.log</code>"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "Synced 5 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "\n",
+-       "                    <br/>Synced <strong style=\"color:#cdcd00\">wild-pyramid-2</strong>: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1/runs/39nsgnic\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1/runs/39nsgnic</a><br/>\n",
+-       "                "
++       "<style>\n",
++       "    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }\n",
++       "    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }\n",
++       "    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }\n",
++       "    </style>\n",
++       "<div class=\"wandb-row\"><div class=\"wandb-col\">\n",
++       "</div><div class=\"wandb-col\">\n",
++       "</div></div>\n",
++       "Synced 5 W&B file(s), 0 media file(s), 1 artifact file(s) and 0 other file(s)\n",
++       "<br/>Synced <strong style=\"color:#cdcd00\">confused-breeze-2</strong>: <a href=\"https://wandb.ai/cabreirajm/demo_artifact_1/runs/1hlv5s8g\" target=\"_blank\">https://wandb.ai/cabreirajm/demo_artifact_1/runs/1hlv5s8g</a><br/>\n",
++       "Find logs at: <code>./wandb/run-20211115_174849-1hlv5s8g/logs</code><br/>\n"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -417,28 +348,17 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 13,
++   "execution_count": 11,
+    "id": "9bd1b7e4",
+    "metadata": {},
+    "outputs": [
+-    {
+-     "name": "stderr",
+-     "output_type": "stream",
+-     "text": [
+-      "\u001b[34m\u001b[1mwandb\u001b[0m: wandb version 0.10.29 is available!  To upgrade, please run:\n",
+-      "\u001b[34m\u001b[1mwandb\u001b[0m:  $ pip install wandb --upgrade\n"
+-     ]
+-    },
+     {
+      "data": {
+       "text/html": [
+        "\n",
+-       "                Tracking run with wandb version 0.10.28<br/>\n",
+-       "                Syncing run <strong style=\"color:#cdcd00\">golden-dawn-3</strong> to <a href=\"https://wandb.ai\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n",
+-       "                Project page: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1</a><br/>\n",
+-       "                Run page: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1/runs/2vinqwo1\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1/runs/2vinqwo1</a><br/>\n",
+-       "                Run data is saved locally in <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110639-2vinqwo1</code><br/><br/>\n",
+-       "            "
++       "                    Syncing run <strong><a href=\"https://wandb.ai/cabreirajm/demo_artifact_1/runs/2k6k3gsl\" target=\"_blank\">solar-fog-3</a></strong> to <a href=\"https://wandb.ai/cabreirajm/demo_artifact_1\" target=\"_blank\">Weights & Biases</a> (<a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">docs</a>).<br/>\n",
++       "\n",
++       "                "
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -450,7 +370,7 @@
+     {
+      "data": {
+       "text/html": [
+-       "<br/>Waiting for W&B process to finish, PID 3732<br/>Program ended successfully."
++       "<br/>Waiting for W&B process to finish, PID 25325... <strong style=\"color:green\">(success).</strong>"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -476,45 +396,17 @@
+     {
+      "data": {
+       "text/html": [
+-       "Find user logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110639-2vinqwo1/logs/debug.log</code>"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "Find internal logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110639-2vinqwo1/logs/debug-internal.log</code>"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)"
+-      ],
+-      "text/plain": [
+-       "<IPython.core.display.HTML object>"
+-      ]
+-     },
+-     "metadata": {},
+-     "output_type": "display_data"
+-    },
+-    {
+-     "data": {
+-      "text/html": [
+-       "\n",
+-       "                    <br/>Synced <strong style=\"color:#cdcd00\">golden-dawn-3</strong>: <a href=\"https://wandb.ai/giacomovianello/demo_artifact_1/runs/2vinqwo1\" target=\"_blank\">https://wandb.ai/giacomovianello/demo_artifact_1/runs/2vinqwo1</a><br/>\n",
+-       "                "
++       "<style>\n",
++       "    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }\n",
++       "    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }\n",
++       "    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }\n",
++       "    </style>\n",
++       "<div class=\"wandb-row\"><div class=\"wandb-col\">\n",
++       "</div><div class=\"wandb-col\">\n",
++       "</div></div>\n",
++       "Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)\n",
++       "<br/>Synced <strong style=\"color:#cdcd00\">solar-fog-3</strong>: <a href=\"https://wandb.ai/cabreirajm/demo_artifact_1/runs/2k6k3gsl\" target=\"_blank\">https://wandb.ai/cabreirajm/demo_artifact_1/runs/2k6k3gsl</a><br/>\n",
++       "Find logs at: <code>./wandb/run-20211115_174907-2k6k3gsl/logs</code><br/>\n"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -554,28 +446,17 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 14,
++   "execution_count": 12,
+    "id": "b63d3ff3",
+    "metadata": {},
+    "outputs": [
+-    {
+-     "name": "stderr",
+-     "output_type": "stream",
+-     "text": [
+-      "\u001b[34m\u001b[1mwandb\u001b[0m: wandb version 0.10.29 is available!  To upgrade, please run:\n",
+-      "\u001b[34m\u001b[1mwandb\u001b[0m:  $ pip install wandb --upgrade\n"
+-     ]
+-    },
+     {
+      "data": {
+       "text/html": [
+        "\n",
+-       "                Tracking run with wandb version 0.10.28<br/>\n",
+-       "                Syncing run <strong style=\"color:#cdcd00\">atomic-leaf-1</strong> to <a href=\"https://wandb.ai\" target=\"_blank\">Weights & Biases</a> <a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">(Documentation)</a>.<br/>\n",
+-       "                Project page: <a href=\"https://wandb.ai/giacomovianello/multiple_runs\" target=\"_blank\">https://wandb.ai/giacomovianello/multiple_runs</a><br/>\n",
+-       "                Run page: <a href=\"https://wandb.ai/giacomovianello/multiple_runs/runs/1vwwtla1\" target=\"_blank\">https://wandb.ai/giacomovianello/multiple_runs/runs/1vwwtla1</a><br/>\n",
+-       "                Run data is saved locally in <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110843-1vwwtla1</code><br/><br/>\n",
+-       "            "
++       "                    Syncing run <strong><a href=\"https://wandb.ai/cabreirajm/multiple_runs/runs/1o6guyu9\" target=\"_blank\">helpful-frost-1</a></strong> to <a href=\"https://wandb.ai/cabreirajm/multiple_runs\" target=\"_blank\">Weights & Biases</a> (<a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">docs</a>).<br/>\n",
++       "\n",
++       "                "
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -587,7 +468,7 @@
+     {
+      "data": {
+       "text/html": [
+-       "<br/>Waiting for W&B process to finish, PID 3762<br/>Program ended successfully."
++       "<br/>Waiting for W&B process to finish, PID 25376... <strong style=\"color:green\">(success).</strong>"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -613,7 +494,17 @@
+     {
+      "data": {
+       "text/html": [
+-       "Find user logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110843-1vwwtla1/logs/debug.log</code>"
++       "<style>\n",
++       "    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }\n",
++       "    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }\n",
++       "    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }\n",
++       "    </style>\n",
++       "<div class=\"wandb-row\"><div class=\"wandb-col\">\n",
++       "</div><div class=\"wandb-col\">\n",
++       "</div></div>\n",
++       "Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)\n",
++       "<br/>Synced <strong style=\"color:#cdcd00\">helpful-frost-1</strong>: <a href=\"https://wandb.ai/cabreirajm/multiple_runs/runs/1o6guyu9\" target=\"_blank\">https://wandb.ai/cabreirajm/multiple_runs/runs/1o6guyu9</a><br/>\n",
++       "Find logs at: <code>./wandb/run-20211115_174935-1o6guyu9/logs</code><br/>\n"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -625,7 +516,10 @@
+     {
+      "data": {
+       "text/html": [
+-       "Find internal logs for this run at: <code>/Users/instructor/PycharmProjects/nd0821-c2-build-model-workflow/lesson-1-machine-learning-pipelines/demo/wandb/run-20210504_110843-1vwwtla1/logs/debug-internal.log</code>"
++       "\n",
++       "                    Syncing run <strong><a href=\"https://wandb.ai/cabreirajm/multiple_runs/runs/3k9h7fjl\" target=\"_blank\">expert-dawn-2</a></strong> to <a href=\"https://wandb.ai/cabreirajm/multiple_runs\" target=\"_blank\">Weights & Biases</a> (<a href=\"https://docs.wandb.com/integrations/jupyter.html\" target=\"_blank\">docs</a>).<br/>\n",
++       "\n",
++       "                "
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -637,7 +531,7 @@
+     {
+      "data": {
+       "text/html": [
+-       "Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)"
++       "<br/>Waiting for W&B process to finish, PID 25421... <strong style=\"color:green\">(success).</strong>"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -646,12 +540,34 @@
+      "metadata": {},
+      "output_type": "display_data"
+     },
++    {
++     "data": {
++      "application/vnd.jupyter.widget-view+json": {
++       "model_id": "",
++       "version_major": 2,
++       "version_minor": 0
++      },
++      "text/plain": [
++       "VBox(children=(Label(value=' 0.00MB of 0.00MB uploaded (0.00MB deduped)\\r'), FloatProgress(value=1.0, max=1.0)…"
++      ]
++     },
++     "metadata": {},
++     "output_type": "display_data"
++    },
+     {
+      "data": {
+       "text/html": [
+-       "\n",
+-       "                    <br/>Synced <strong style=\"color:#cdcd00\">atomic-leaf-1</strong>: <a href=\"https://wandb.ai/giacomovianello/multiple_runs/runs/1vwwtla1\" target=\"_blank\">https://wandb.ai/giacomovianello/multiple_runs/runs/1vwwtla1</a><br/>\n",
+-       "                "
++       "<style>\n",
++       "    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }\n",
++       "    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }\n",
++       "    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }\n",
++       "    </style>\n",
++       "<div class=\"wandb-row\"><div class=\"wandb-col\">\n",
++       "</div><div class=\"wandb-col\">\n",
++       "</div></div>\n",
++       "Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)\n",
++       "<br/>Synced <strong style=\"color:#cdcd00\">expert-dawn-2</strong>: <a href=\"https://wandb.ai/cabreirajm/multiple_runs/runs/3k9h7fjl\" target=\"_blank\">https://wandb.ai/cabreirajm/multiple_runs/runs/3k9h7fjl</a><br/>\n",
++       "Find logs at: <code>./wandb/run-20211115_174950-3k9h7fjl/logs</code><br/>\n"
+       ],
+       "text/plain": [
+        "<IPython.core.display.HTML object>"
+@@ -698,7 +614,7 @@
+  ],
+  "metadata": {
+   "kernelspec": {
+-   "display_name": "Python 3",
++   "display_name": "Python 3 (ipykernel)",
+    "language": "python",
+    "name": "python3"
+   },
+@@ -712,7 +628,7 @@
+    "name": "python",
+    "nbconvert_exporter": "python",
+    "pygments_lexer": "ipython3",
+-   "version": "3.8.8"
++   "version": "3.8.12"
+   }
+  },
+  "nbformat": 4,
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/upload_artifact.py b/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/upload_artifact.py
+index cb43d39..429c3db 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/upload_artifact.py
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/upload_artifact.py
+@@ -12,24 +12,20 @@ logger = logging.getLogger()
+ def go(args):
+ 
+     logger.info("Creating run exercise_1")
++    run = wandb.init(project='exercise_1', job_type = 'upload_file')
+ 
+-    # Create a W&B run in the project ``exercise_1``. Set the option ``job_type="upload_file"``:
+-
+-    # YOUR CODE HERE
+-
+-    # Create an instance of the class ``wandb.Artifact``. Use the ``artifact_name`` parameter to fill
+-    # the keyword ``name`` when constructing the wandb.Artifact class.
+-    # Use the parameters ``artifact_type`` and ``artifact_desc`` to fill respectively the keyword
+-    # ``type`` and ``description``
+-    # HINT: you can use args.artifact_name to reference the parameter artifact_name
+-
+-    # YOUR CODE HERE
+-
+-    # Attach the file provided as the parameter ``input_file`` to the artifact instance using
+-    # ``artifact.add_file``, and log the artifact to the run using ``run.log_artifact``.
++    logger.info('Creating an artifcat')
++    artifact = wandb.Artifact(
++        name = args.artifact_name,
++        type = args.artifact_type,
++        description = args.artifact_description
++    )
+ 
+-    # YOUR CODE HERE
++    logger.info('Adding file')
++    artifact.add_file(args.input_file)
+ 
++    logger.info('Logging artifact')
++    run.log_artifact(artifact)
+ 
+ if __name__ == "__main__":
+     parser = argparse.ArgumentParser(
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py b/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py
+index f455e13..388e4b7 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/use_artifact.py
+@@ -14,10 +14,19 @@ def go(args):
+     logger.info("Creating run in project exercise_1")
+     run = wandb.init(project="exercise_1", job_type="use_file")
+ 
++    # get the artifact and store its local path in the variable "artifact_path"
+     logger.info("Getting artifact")
++    artifact = run.use_artifact(args.artifact_name)
++
++    logger.info('Artifact content:')
++    filepath = artifact.file()
++
++    with open(filepath, 'r') as fp:
++        content = fp.read()
++
++    print(content)
++    
+ 
+-    # YOUR CODE HERE: get the artifact and store its local path in the variable "artifact_path"
+-    # HINT: you can get the artifact path by using the "file()" method
+ 
+     artifact_path = artifact.file()
+ 
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/zen.txt b/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/zen.txt
+index 634c12b..7478045 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/zen.txt
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_1/starter/zen.txt
+@@ -1,5 +1,5 @@
+ The Zen of Python, by Tim Peters
+-
++Change the zen file so that new version of the artifact will be created
+ Beautiful is better than ugly.
+ Explicit is better than implicit.
+ Simple is better than complex.
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_2/solution/conda.yml b/lesson-1-machine-learning-pipelines/exercises/exercise_2/solution/conda.yml
+index 42cd9c8..b592c21 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_2/solution/conda.yml
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_2/solution/conda.yml
+@@ -3,7 +3,8 @@ channels:
+   - conda-forge
+   - defaults
+ dependencies:
++  - python=3.8
+   - requests=2.24.0
+   - pip=20.3.3
+   - pip:
+-      - wandb==0.10.21
+\ No newline at end of file
++      - wandb==0.10.21
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/conda.yml b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/conda.yml
+index b735436..1e9d137 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/conda.yml
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/conda.yml
+@@ -3,4 +3,10 @@ channels:
+   - conda-forge
+   - defaults
+ dependencies:
+-  # Complete HERE
++  - python=3.8
++  - requests=2.24.0
++  - mlflow=1.14.1
++  - hydra-core=1.0.6
++  - pip=20.3.3
++  - pip:
++      - wandb==0.10.21
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/config.yaml b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/config.yaml
+index 2841a69..75b3a6a 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/config.yaml
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/config.yaml
+@@ -1,6 +1,5 @@
+ main:
+-  project_name: experiment_3
++  project_name: exercise_3
+   experiment_name: dev
+ data:
+   file_url: https://raw.githubusercontent.com/scikit-learn/scikit-learn/4dfdfb4e1bb3719628753a4ece995a1b2fa5312a/sklearn/datasets/data/iris.csv
+-
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/download_data/conda.yml b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/download_data/conda.yml
+index 42cd9c8..b592c21 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/download_data/conda.yml
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/download_data/conda.yml
+@@ -3,7 +3,8 @@ channels:
+   - conda-forge
+   - defaults
+ dependencies:
++  - python=3.8
+   - requests=2.24.0
+   - pip=20.3.3
+   - pip:
+-      - wandb==0.10.21
+\ No newline at end of file
++      - wandb==0.10.21
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/main.py b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/main.py
+index 47fba9e..9f94d61 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/main.py
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/main.py
+@@ -26,12 +26,16 @@ def go(config: DictConfig):
+         },
+     )
+ 
+-    ##################
+-    # Your code here: use the artifact we created in the previous step as input for the `process_data` step
+-    # and produce a new artifact called "cleaned_data".
+-    # NOTE: use os.path.join(root_path, "process_data") to get the path
+-    # to the "process_data" component
+-    ##################
++    _ = mlflow.run(
++        os.path.join(root_path, "process_data"),
++        "main",
++        parameters={
++            "input_artifact": "iris.csv:latest",
++            "artifact_name": "clean_data.csv",
++            "artifact_type": "clean_data",
++            "artifact_description": "Data after the preprocessing step"
++        },
++    )
+ 
+ 
+ 
+diff --git a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/process_data/conda.yml b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/process_data/conda.yml
+index 09811f0..79b29bd 100644
+--- a/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/process_data/conda.yml
++++ b/lesson-1-machine-learning-pipelines/exercises/exercise_3/starter/process_data/conda.yml
+@@ -3,6 +3,7 @@ channels:
+   - conda-forge
+   - defaults
+ dependencies:
++  - python=3.8
+   - requests=2.24.0
+   - pip=20.3.3
+   - seaborn=0.11.1
+@@ -11,4 +12,4 @@ dependencies:
+   - matplotlib==3.2.2
+   - pillow=8.1.2
+   - pip:
+-      - wandb==0.10.21
+\ No newline at end of file
++      - wandb==0.10.21
+diff --git a/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/MLproject b/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/MLproject
+index e69de29..3bc887c 100644
+--- a/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/MLproject
++++ b/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/MLproject
+@@ -0,0 +1,7 @@
++name: exercise_4
++conda_env: conda.yml
++
++entry_points:
++    main:
++        command: >-
++            jupyter notebook
+\ No newline at end of file
+diff --git a/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/conda.yml b/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/conda.yml
+index f216511..8866036 100644
+--- a/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/conda.yml
++++ b/lesson-2-data-exploration-and-preparation/exercises/exercise_4/starter/conda.yml
+@@ -3,6 +3,7 @@ channels:
+   - conda-forge
+   - defaults
+ dependencies:
++  - python=3.8
+   - jupyterlab=3.0.12
+   - seaborn=0.11.1
+   - pandas=1.2.3
+@@ -10,4 +11,4 @@ dependencies:
+   - pandas-profiling=2.11.0
+   - pyarrow=2.0
+   - pip:
+-      - wandb==0.10.21
+\ No newline at end of file
++      - wandb==0.10.21
