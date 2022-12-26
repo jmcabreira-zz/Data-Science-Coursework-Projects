@@ -46,4 +46,4 @@ tornado==6.1
 typing-extensions==4.0.0
 urllib3==1.25.11
 wandb==0.10.21
-wheel==0.37.0
+wheel==0.38.1
